@@ -4,27 +4,75 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --surface: #ffffff;
+    --text: #333333;
+    --muted: #666666;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --surface-strong: #f8f9fb;
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --text: #e6edf3;
+    --muted: #8b98aa;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --surface-strong: #21262d;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    color: #333;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.6;
     min-height: 100vh;
 }
 
 header {
-    background: white;
+    background: var(--surface);
     padding: 80px 20px;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 header h1 {
     font-size: 3.5em;
     font-weight: 300;
     letter-spacing: 3px;
-    color: #1a1a1a;
+    color: var(--text);
     margin-bottom: 15px;
+}
+
+#themeToggle {
+    border: 1px solid var(--border);
+    background: var(--surface-strong);
+    color: var(--text);
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+#themeToggle:hover {
+    transform: scale(1.03);
+}
+
+body.dark-mode #themeToggle {
+    background: #2f3a46;
+    color: #f1f6ff;
 }
 
 header p {
@@ -41,10 +89,10 @@ main {
 }
 
 .story-section {
-    background: white;
+    background: var(--surface);
     padding: 50px;
     border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 15px var(--shadow);
     margin-bottom: 60px;
 }
 
@@ -52,7 +100,7 @@ main {
     text-align: justify;
     margin-bottom: 20px;
     font-size: 1.1em;
-    color: #444;
+    color: var(--text);
     line-height: 1.8;
 }
 
@@ -61,10 +109,10 @@ main {
 }
 
 .presentation-title {
-    background: white;
+    background: var(--surface);
     padding: 50px;
     border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 15px var(--shadow);
     text-align: center;
     margin-bottom: 60px;
 }
@@ -73,7 +121,7 @@ main {
     font-size: 2.2em;
     font-weight: 300;
     letter-spacing: 2px;
-    color: #1a1a1a;
+    color: var(--text);
 }
 
 .fake-video {
@@ -222,7 +270,7 @@ main {
 footer {
     text-align: center;
     padding: 40px 20px;
-    color: #888;
+    color: var(--muted);
     font-size: 0.95em;
 }
 
