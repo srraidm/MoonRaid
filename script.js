@@ -6,7 +6,7 @@ const videoContainer = document.querySelector('.video-container');
 fakeVideo.addEventListener('click', function() {
     modal.classList.add('active');
     const iframe = document.createElement('iframe');
-    iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+    iframe.src = 'https://www.youtube.com/watch?v=zXUqNw0XHTc';
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.allowFullscreen = true;
     videoContainer.innerHTML = '';
