@@ -28,7 +28,6 @@ themeToggle.addEventListener('click', () => {
 fakeVideo.addEventListener('click', function() {
     modal.classList.add('active');
     const iframe = document.createElement('iframe');
-    // Se mantiene tu URL exacta cambiando solo el final a raw=1
     iframe.src = 'https://www.dropbox.com/scl/fi/jyv0ou3fdzeecrr63mzog/YTDown.com_YouTube_Rick-Astley-Never-Gonna-Give-You-Up-Offi_Media_dQw4w9WgXcQ_001_1080p.mp4?rlkey=1aidsuvw6outpyxzwlvpf4zej&st=rrzlnd5q&raw=1';
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.allowFullscreen = true;
