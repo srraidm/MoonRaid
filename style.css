@@ -95,6 +95,7 @@ header p {
     font-weight: 300;
     letter-spacing: 1px;
     margin-top: 10px;
+    text-align: center;
 }
 
 /* --- Contenedor Principal --- */
@@ -207,7 +208,25 @@ main {
     border-bottom: 20px solid transparent;
     margin-left: 8px;
 }
+/* --- Imagen Moonraid --- */
+.moonraid-image {
+    text-align: center;
+    margin: 60px auto;
+    max-width: 900px;
+    padding: 0 20px;
+}
 
+.moonraid-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.moonraid-image img:hover {
+    transform: scale(1.05);
+}
 .fake-video:hover .play-button {
     transform: translate(-50%, -50%) scale(1.15);
     background-color: #ff2e3d;
