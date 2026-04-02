@@ -1,3 +1,4 @@
+/* --- Reseteo y Variables --- */
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +13,7 @@
     --shadow: rgba(0, 0, 0, 0.08);
     --surface-strong: #f8f9fb;
     --border: rgba(255, 255, 255, 0.08);
+    --accent: #ff4757;
 }
 
 body.dark-mode {
@@ -24,97 +26,123 @@ body.dark-mode {
     --border: rgba(255, 255, 255, 0.1);
 }
 
+/* --- Estilos Base --- */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
     min-height: 100vh;
+    transition: background 0.3s ease;
 }
 
+/* --- Header con Centrado Perfecto --- */
 header {
     background: var(--surface);
     padding: 80px 20px;
     text-align: center;
     box-shadow: 0 2px 10px var(--shadow);
+    position: relative;
+    overflow: hidden;
 }
 
 .header-top {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centra el h1 horizontalmente */
     align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto 15px;
+    width: 100%;
 }
 
 header h1 {
     font-size: 3.5em;
     font-weight: 300;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     color: var(--text);
-    margin-bottom: 15px;
+    margin: 0;
+    transition: color 0.3s ease;
 }
 
 #themeToggle {
+    position: absolute;
+    right: 20px; /* Lo ancla a la derecha sin empujar el título */
+    top: 50%;
+    transform: translateY(-50%);
     border: 1px solid var(--border);
     background: var(--surface-strong);
     color: var(--text);
-    padding: 10px 18px;
+    padding: 10px 20px;
     border-radius: 999px;
     cursor: pointer;
     font-weight: 600;
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    font-size: 0.9em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    box-shadow: 0 2px 5px var(--shadow);
 }
 
 #themeToggle:hover {
-    transform: scale(1.03);
-}
-
-body.dark-mode #themeToggle {
-    background: #2f3a46;
-    color: #f1f6ff;
+    transform: translateY(-50%) scale(1.05);
+    background-color: var(--text);
+    color: var(--surface);
 }
 
 header p {
     font-size: 1.3em;
-    color: #666;
+    color: var(--muted);
     font-weight: 300;
     letter-spacing: 1px;
+    margin-top: 10px;
 }
 
+/* --- Contenedor Principal --- */
 main {
     max-width: 900px;
     margin: 60px auto;
     padding: 0 20px;
 }
 
+/* --- Secciones de Historia --- */
 .story-section {
     background: var(--surface);
     padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px var(--shadow);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow);
     margin-bottom: 60px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.story-section:hover {
+    transform: translateY(-5px);
 }
 
 .story-section p {
     text-align: justify;
-    margin-bottom: 20px;
-    font-size: 1.1em;
+    margin-bottom: 25px;
+    font-size: 1.15em;
     color: var(--text);
     line-height: 1.8;
+}
+
+.story-section p strong {
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .story-section p:last-child {
     margin-bottom: 0;
 }
 
+/* --- Título de Presentación --- */
 .presentation-title {
     background: var(--surface);
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px var(--shadow);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px var(--shadow);
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .presentation-title h2 {
@@ -124,27 +152,34 @@ main {
     color: var(--text);
 }
 
+/* --- Fake Video Player --- */
 .fake-video {
     position: relative;
-    max-width: 600px;
-    margin: 0 auto 60px;
+    max-width: 700px;
+    margin: 0 auto 80px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #000;
 }
 
 .fake-video:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
 }
 
 .fake-video img {
     width: 100%;
     height: auto;
     display: block;
-    background-color: #000;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.fake-video:hover img {
+    opacity: 1;
 }
 
 .play-button {
@@ -154,18 +189,13 @@ main {
     transform: translate(-50%, -50%);
     width: 90px;
     height: 90px;
-    background-color: rgba(255, 0, 0, 0.9);
+    background-color: var(--accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
     z-index: 10;
-}
-
-.fake-video:hover .play-button {
-    background-color: rgba(255, 0, 0, 1);
-    transform: translate(-50%, -50%) scale(1.1);
+    transition: all 0.3s ease;
 }
 
 .play-button::after {
@@ -178,6 +208,12 @@ main {
     margin-left: 8px;
 }
 
+.fake-video:hover .play-button {
+    transform: translate(-50%, -50%) scale(1.15);
+    background-color: #ff2e3d;
+}
+
+/* --- Modal del Video --- */
 .modal {
     display: none;
     position: fixed;
@@ -185,77 +221,49 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.92);
+    z-index: 2000;
     align-items: center;
     justify-content: center;
-    animation: fadeIn 0.3s ease;
+    backdrop-filter: blur(8px);
 }
 
 .modal.active {
     display: flex;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    animation: fadeIn 0.4s ease;
 }
 
 .modal-content {
     background-color: #000;
-    width: 90%;
-    max-width: 900px;
+    width: 95%;
+    max-width: 1000px;
     position: relative;
-    border-radius: 12px;
+    border-radius: 20px;
     overflow: hidden;
-    animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
 
 .close-modal {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(255, 0, 0, 0.8);
+    top: -60px;
+    right: 0;
+    background: transparent;
     color: white;
     border: none;
-    font-size: 32px;
+    font-size: 40px;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1001;
-    transition: background-color 0.3s ease;
-    padding: 0;
+    transition: color 0.3s ease;
 }
 
 .close-modal:hover {
-    background-color: rgba(255, 0, 0, 1);
+    color: var(--accent);
 }
 
 .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
-    overflow: hidden;
 }
 
 .video-container iframe {
@@ -267,25 +275,64 @@ main {
     border: none;
 }
 
+/* --- Footer --- */
 footer {
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
     color: var(--muted);
-    font-size: 0.95em;
+    font-size: 1em;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
+
+/* --- Animaciones --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    header h1 { font-size: 2.8em; }
+    main { max-width: 90%; }
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 60px 20px;
+    }
+
+    .header-top {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #themeToggle {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+    }
+
+    #themeToggle:hover {
+        transform: scale(1.05);
+    }
+
     header h1 {
-        font-size: 2.5em;
+        font-size: 2.2em;
+        letter-spacing: 2px;
     }
 
-    header p {
-        font-size: 1.1em;
+    .story-section {
+        padding: 30px 20px;
     }
 
-    .story-section,
-    .presentation-title {
-        padding: 30px;
+    .story-section p {
+        font-size: 1.05em;
     }
 
     .play-button {
@@ -298,16 +345,9 @@ footer {
         border-top: 15px solid transparent;
         border-bottom: 15px solid transparent;
     }
+}
 
-    .presentation-title h2 {
-        font-size: 1.8em;
-    }
-
-    .close-modal {
-        width: 45px;
-        height: 45px;
-        font-size: 28px;
-        top: 15px;
-        right: 15px;
-    }
+@media (max-width: 480px) {
+    header h1 { font-size: 1.8em; }
+    .presentation-title h2 { font-size: 1.5em; }
 }
