@@ -227,6 +227,26 @@ main {
 .moonraid-image img:hover {
     transform: scale(1.05);
 }
+
+/* --- Imagen Raidymoon --- */
+.raidymoon-image {
+    text-align: center;
+    margin: 60px auto;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.raidymoon-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.raidymoon-image img:hover {
+    transform: scale(1.05);
+}
 .fake-video:hover .play-button {
     transform: translate(-50%, -50%) scale(1.15);
     background-color: #ff2e3d;
