@@ -6,18 +6,18 @@
 }
 
 :root {
-    --bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --bg: #f0f2f5; /* Fondo gris claro suave */
     --surface: #ffffff;
-    --text: #333333;
-    --muted: #666666;
+    --text: #1a1a1a;
+    --muted: #5f6368;
     --shadow: rgba(0, 0, 0, 0.08);
     --surface-strong: #f8f9fb;
-    --border: rgba(255, 255, 255, 0.08);
-    --accent: #ff4757;
+    --border: rgba(0, 0, 0, 0.05);
+    --accent: #ff4757; /* Color acento para fechas y botones */
 }
 
 body.dark-mode {
-    --bg: #0d1117;
+    --bg: #0d1117; /* Fondo oscuro tipo GitHub */
     --surface: #161b22;
     --text: #e6edf3;
     --muted: #8b98aa;
@@ -29,21 +29,20 @@ body.dark-mode {
 /* --- Estilos Base --- */
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
+    background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
     min-height: 100vh;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* --- Header con Centrado Perfecto --- */
+/* --- Header --- */
 header {
     background: var(--surface);
-    padding: 80px 20px;
+    padding: 60px 20px;
     text-align: center;
     box-shadow: 0 2px 10px var(--shadow);
-    position: relative;
-    overflow: hidden;
+    border-bottom: 1px solid var(--border);
 }
 
 .header-top {
@@ -51,131 +50,108 @@ header {
     justify-content: center; /* Centra el h1 horizontalmente */
     align-items: center;
     position: relative;
-    max-width: 1200px;
-    margin: 0 auto 15px;
-    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 header h1 {
-    font-size: 3.5em;
+    font-size: 2.8em;
     font-weight: 300;
-    letter-spacing: 4px;
-    color: var(--text);
+    letter-spacing: 2px;
     margin: 0;
-    transition: color 0.3s ease;
 }
 
 #themeToggle {
     position: absolute;
-    right: 20px; /* Lo ancla a la derecha sin empujar el título */
-    top: 50%;
-    transform: translateY(-50%);
-    border: 1px solid var(--border);
+    right: 0; /* Lo ancla a la derecha del contenedor */
     background: var(--surface-strong);
     color: var(--text);
-    padding: 10px 20px;
-    border-radius: 999px;
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 20px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 0.9em;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    white-space: nowrap;
-    box-shadow: 0 2px 5px var(--shadow);
+    font-size: 0.85em;
+    transition: all 0.3s ease;
 }
 
 #themeToggle:hover {
-    transform: translateY(-50%) scale(1.05);
     background-color: var(--text);
     color: var(--surface);
 }
 
 header p {
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: var(--muted);
-    font-weight: 300;
-    letter-spacing: 1px;
     margin-top: 10px;
-    text-align: center;
 }
 
-/* --- Contenedor Principal --- */
+/* --- Contenedor Principal (El bloque central) --- */
 main {
-    max-width: 900px;
-    margin: 60px auto;
+    max-width: 800px; /* Ancho controlado para que se vea como en la foto */
+    margin: 40px auto;
     padding: 0 20px;
 }
 
 /* --- Secciones de Historia --- */
 .story-section {
     background: var(--surface);
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px var(--shadow);
-    margin-bottom: 60px;
-    transition: transform 0.3s ease, background 0.3s ease;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
 }
 
 .story-section:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .story-section p {
-    text-align: justify;
-    margin-bottom: 25px;
-    font-size: 1.15em;
+    margin-bottom: 20px;
+    font-size: 1.1em;
     color: var(--text);
-    line-height: 1.8;
-}
-
-.story-section p strong {
-    color: var(--accent);
-    font-weight: 600;
+    text-align: left; /* Alineación más limpia */
 }
 
 .story-section p:last-child {
     margin-bottom: 0;
 }
 
+.story-section p strong {
+    color: var(--accent);
+}
+
 /* --- Título de Presentación --- */
 .presentation-title {
-    background: var(--surface);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px var(--shadow);
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 
 .presentation-title h2 {
-    font-size: 2.2em;
-    font-weight: 300;
-    letter-spacing: 2px;
+    font-size: 1.8em;
+    font-weight: 400;
     color: var(--text);
 }
 
 /* --- Fake Video Player --- */
 .fake-video {
     position: relative;
-    max-width: 700px;
-    margin: 0 auto 80px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px;
     cursor: pointer;
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     background-color: #000;
-}
-
-.fake-video:hover {
-    transform: scale(1.02);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
 }
 
 .fake-video img {
     width: 100%;
     height: auto;
     display: block;
-    opacity: 0.8;
+    opacity: 0.85;
     transition: opacity 0.3s ease;
 }
 
@@ -188,206 +164,102 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     background-color: var(--accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .play-button::after {
     content: '';
-    width: 0;
-    height: 0;
-    border-left: 30px solid white;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    margin-left: 8px;
-}
-/* --- Imagen Moonraid --- */
-.moonraid-image {
-    text-align: center;
-    margin: 60px auto;
-    max-width: 900px;
-    padding: 0 20px;
+    border-left: 20px solid white;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    margin-left: 5px;
 }
 
-.moonraid-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px var(--shadow);
-    transition: transform 0.3s ease;
-}
-
-.moonraid-image img:hover {
-    transform: scale(1.05);
-}
-
-/* --- Imagen Raidymoon --- */
-.raidymoon-image {
-    text-align: center;
-    margin: 60px auto;
-    max-width: 900px;
-    padding: 0 20px;
-}
-
-.raidymoon-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    border: 2px solid var(--border);
-    box-shadow: 0 10px 30px var(--shadow);
-    transition: transform 0.3s ease;
-}
-
-.raidymoon-image img:hover {
-    transform: scale(1.05);
-}
 .fake-video:hover .play-button {
-    transform: translate(-50%, -50%) scale(1.15);
-    background-color: #ff2e3d;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* --- Imágenes (Roblox/Minecraft) --- */
+.moonraid-image, .raidymoon-image {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.moonraid-image img, .raidymoon-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow);
+    border: 1px solid var(--border);
 }
 
 /* --- Modal del Video --- */
 .modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.92);
-    z-index: 2000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(5px);
 }
 
 .modal.active {
     display: flex;
-    animation: fadeIn 0.4s ease;
 }
 
 .modal-content {
-    background-color: #000;
-    width: 95%;
-    max-width: 1000px;
+    width: 90%;
+    max-width: 900px;
     position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
 
 .close-modal {
     position: absolute;
-    top: -60px;
+    top: -50px;
     right: 0;
-    background: transparent;
+    background: none;
     color: white;
     border: none;
-    font-size: 40px;
+    font-size: 35px;
     cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.close-modal:hover {
-    color: var(--accent);
 }
 
 .video-container {
     position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%; /* 16:9 */
     height: 0;
 }
 
 .video-container iframe {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 10px;
 }
 
 /* --- Footer --- */
 footer {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
     color: var(--muted);
-    font-size: 1em;
+    font-size: 0.9em;
     border-top: 1px solid var(--border);
-    margin-top: 40px;
 }
 
-/* --- Animaciones --- */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* --- Responsive Design --- */
-@media (max-width: 992px) {
-    header h1 { font-size: 2.8em; }
-    main { max-width: 90%; }
-}
-
+/* --- Responsive --- */
 @media (max-width: 768px) {
-    header {
-        padding: 60px 20px;
-    }
-
-    .header-top {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    #themeToggle {
-        position: static;
-        transform: none;
-        margin-top: 10px;
-    }
-
-    #themeToggle:hover {
-        transform: scale(1.05);
-    }
-
-    header h1 {
-        font-size: 2.2em;
-        letter-spacing: 2px;
-    }
-
-    .story-section {
-        padding: 30px 20px;
-    }
-
-    .story-section p {
-        font-size: 1.05em;
-    }
-
-    .play-button {
-        width: 70px;
-        height: 70px;
-    }
-
-    .play-button::after {
-        border-left: 22px solid white;
-        border-top: 15px solid transparent;
-        border-bottom: 15px solid transparent;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 { font-size: 1.8em; }
-    .presentation-title h2 { font-size: 1.5em; }
+    header h1 { font-size: 2em; }
+    .header-top { flex-direction: column; gap: 15px; }
+    #themeToggle { position: static; }
+    .story-section { padding: 20px; }
 }
